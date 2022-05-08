@@ -1,0 +1,166 @@
+/* css reset(初始化样式) */
+*{box-sizing:border-box;}
+*:before,*:after{
+    box-sizing:border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+img{
+    /* 让图片大小适配 */
+    max-width: 100%;
+}
+
+/* style */
+body{
+    /* 虽然border区域由内容撑开,但加背景色后会智能的把整个网页变色 */
+    background-color: #eee; 
+}
+.globalheader{
+    margin: 20px 20px ;
+}
+/* 想改哪个部分的pc页面,就在它的元素下面写媒体查询@media(){}
+    然后在{}里面写这个元素,再写{} */
+@media(min-width:500px){
+    .globalheader{
+        margin: 60px  0 100px;
+    }
+}
+.searchForm{
+    /* 让布局变成flex,空隙放中间 */
+    display:flex;
+    justify-content:space-between ; 
+}
+/* (电脑端)利用媒体查询,设置屏幕最小宽度500px */
+@media(min-width:500px){
+    /* 确定搜索框最大宽度 */
+    .searchForm{
+        max-width: 400px;
+        /* 用这两行代替margin:0 auto */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.searchForm>input{
+    width:100%;
+    /*加margin-right:;
+    加空隙*/margin-right: 10px;
+    height: 40px;
+    /*使输入光标有间距*/
+    padding: 0 10px;
+    border: none;
+    border-radius: 4px;
+}
+.searchForm>button{
+    /*让搜索里面的字不会换行*/white-space: nowrap;
+    padding:0 28px;
+    border: none;
+    border-radius:4px ;
+    background-color: rgba(42.84, 105.26400000000001, 153, 1);
+    color: #fff;
+    font-size: 16px;
+}
+/* (pc端) */
+.globalmain{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sitelist{
+    display: flex;
+    /* 位置不够时自动换行 */
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-between;
+    border:1px solid red;
+}
+@media(min-width:500px){
+    .sitelist{
+        margin-left: 0;
+        margin-right: -25px;
+        justify-content: flex-start;
+    }
+}
+/* 只有pc端才有右margin,手机端没有 */
+.sitelist>li {
+    margin-bottom: 10px;
+}
+@media(min-width:500px){
+    .sitelist>li{
+        margin-right: 25px;
+    }
+}
+.sitelist .site{
+    width: 160px;
+    height: 132px;
+    display: flex;
+    /*上下居中*/justify-content: center;
+    /*左右居中*/align-items: center;
+    /*两个元素纵向排列*/flex-direction: column;
+    background-color: #fff;
+    margin-bottom: 10px ;
+    border-radius: 4px;
+    position: relative;
+    border:1px solid blue;
+    /* margin-right: 25px; */
+}
+.sitelist .site>.logo{
+    width: 64px;
+    height: 64px;
+    font-size: 60px;
+    /* 想让谁居中,就在谁的父元素复制这三行代码 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 把首字母变成大写展示在logo中 */
+    text-transform: uppercase;
+}
+/* 关闭按钮:定位右上角 */
+.sitelist .site> .close{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    /* 鼠标不hover的时候隐藏 */
+    display: none;
+}
+.sitelist .site:hover> .close{
+    display:block;
+}
+
+.sitelist .site>.link{
+    font-size: 16px;
+    margin-top: 8px;
+}
+.sitelist .addbutton{
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid black ; */
+    padding: 20px 0;
+    background-color: #fff;
+}
+.sitelist .addbutton .icon{
+    width: 56px;
+    height: 56px;
+}
+.sitelist .addbutton .icon-wrapper{
+    /* border: 1px solid red ; */
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sitelist .addbutton .text{
+    margin-top: 8px;
+}
