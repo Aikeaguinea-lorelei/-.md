@@ -72,7 +72,7 @@ $(document).on('keypress',(e)=>{
     for(let i=0;i<hashMap.length;i++){
         // 如果hashmap里哪一项的logo的小写是键盘上打出的key
             // 就打开这项的链接
-        if(hashMap[i].logo.toLowerCase()===key && searchForm.search != onfocus){
+        if(hashMap[i].logo.toLowerCase()===key){
             window.open(hashMap[i].url)
         }
     }
