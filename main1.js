@@ -77,3 +77,7 @@ $(document).on('keypress',(e)=>{
         }
     }
 })
+// 阻止冒泡
+$(document).on('keypress','.searchForm',(e)=>{
+    e.stopPropagation()
+})
